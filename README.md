@@ -1,147 +1,103 @@
-**Product Success Prediction Model Selection
-Table of Contents
-**
-Project Overview
-Installation and Setup
-Data Description
-Methodology
-Model Architecture
-Hyperparameter Tuning
-Results and Interpretation
-Usage Guide
-Troubleshooting
-Contributing
-License
+# Product Success Prediction Model Selection
 
-**Project Overview**
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+
+This project compares different machine learning models to predict the success of fashion products using historical data.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Models](#models)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
 This project aims to predict the success of fashion products using machine learning techniques. It compares the performance of three different models: Random Forest, XGBoost, and Artificial Neural Network (ANN). The project includes data preprocessing, model training with hyperparameter tuning, and performance evaluation.
-The main objectives of this project are:
 
-To preprocess and analyze historical product data
-To train and optimize multiple machine learning models for product success prediction
-To compare the performance of different models and identify the best approach
-To provide insights into the most important features for predicting product success
+## Features
 
-**Installation and Setup**
-Prerequisites
+- Data preprocessing and feature engineering
+- Implementation of Random Forest, XGBoost, and ANN models
+- Hyperparameter tuning for each model
+- Model performance comparison
+- Feature importance analysis
 
-Python 3.7 or higher
-Jupyter Notebook
+## Installation
 
-**Installation Steps**
+1. Clone this repository:
+   ```
+   git clone https://github.com/your-username/product-success-prediction.git
+   cd product-success-prediction
+   ```
 
-Clone the repository:
-Copygit clone https://github.com/your-username/product-success-prediction.git
-cd product-success-prediction
+2. Create and activate a virtual environment:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
 
-Create and activate a virtual environment:
-Copypython -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+3. Install required packages:
+   ```
+   pip install -r requirements.txt
+   ```
 
-Install required packages:
-Copypip install pandas numpy scikit-learn xgboost tensorflow matplotlib seaborn
+## Usage
 
-Verify the installation:
-Copypython -c "import pandas, numpy, sklearn, xgboost, tensorflow, matplotlib, seaborn; print('All packages installed successfully')"
+1. Ensure you have the `historic.csv` file in the `data/` directory.
 
+2. Run the Jupyter notebook:
+   ```
+   jupyter notebook
+   ```
 
-**Data Description**
-The project uses a dataset named historic.csv, which should be placed in the same directory as the Jupyter notebook. The dataset contains the following features:
+3. Open `model_selection.ipynb` and run all cells.
 
-item_no: Unique identifier for each product
-category: Product category
-main_promotion: Main promotion type used for the product
-color: Product color
-stars: Customer rating (0-5 stars)
-success_indicator: Target variable (1 for successful products, 0 for unsuccessful)
+4. The notebook will generate results and visualizations for model comparison.
 
-Additional features may be present in the dataset. The preprocessing step handles various data types and prepares the data for model training.
+## Models
 
-**Methodology**
-The project follows these main steps:
+The project compares the following models:
 
-**Data Preprocessing:**
+1. **Random Forest**: An ensemble learning method using multiple decision trees.
+2. **XGBoost**: A gradient boosting algorithm known for its performance and speed.
+3. **Artificial Neural Network (ANN)**: A multi-layer perceptron with dense layers and dropout.
 
-Loading the data from historic.csv
-Encoding categorical variables using Label Encoding
-Scaling numerical features using StandardScaler
-Splitting the data into training and testing sets
+Each model undergoes hyperparameter tuning to optimize performance.
 
+## Results
 
-**Model Training and Tuning:**
+The notebook generates:
 
-Training three different models: Random Forest, XGBoost, and ANN
-Performing hyperparameter tuning for each model
-Evaluating model performance using accuracy and classification report
+- Accuracy scores for each model
+- Classification reports (precision, recall, F1-score)
+- Feature importance visualizations
+- Model comparison plots
 
+Refer to the notebook for detailed results and interpretations.
 
-**Model Comparison:**
+## Contributing
 
-Comparing the performance of all three models
-Visualizing the results using bar plots and feature importance charts
-
-
-**Feature Importance Analysis:**
-
-Analyzing feature importance for Random Forest and XGBoost models
-Visualizing the top 10 most important features for each model
-
-
-
-**Model Architecture**
-**Random Forest**
-
-Ensemble learning method using multiple decision trees
-Hyperparameters tuned: n_estimators, max_depth, min_samples_split, min_samples_leaf
-
-**XGBoost**
-
-Gradient boosting algorithm known for its performance and speed
-Hyperparameters tuned: n_estimators, max_depth, learning_rate, subsample, colsample_bytree
-
-**Artificial Neural Network (ANN)**
-
-Multi-layer perceptron with dense layers and dropout for regularization
-Architecture: Input Layer -> Dense(64) -> Dropout -> Dense(32) -> Dropout -> Dense(16) -> Output Layer
-Hyperparameters tuned: neurons, dropout_rate, learning_rate, batch_size, epochs
-
-**Hyperparameter Tuning
-**
-Random Forest and XGBoost: GridSearchCV is used to perform an exhaustive search over specified parameter values.
-ANN: A manual grid search is implemented to find the best combination of hyperparameters.
-
-The hyperparameter grids for each model are defined in the notebook and can be adjusted as needed.
-**Results and Interpretation**
-The notebook generates several outputs to help interpret the results:
-
-Model Accuracy: The accuracy of each model on the test set is reported and compared.
-Classification Report: Precision, recall, and F1-score for each class are provided for all models.
-Feature Importance: Bar plots showing the top 10 most important features for Random Forest and XGBoost models.
-Model Comparison Plot: A bar plot comparing the accuracy of all three models.
-
-Interpret these results to understand which model performs best for your specific dataset and which features are most predictive of product success.
-**Usage Guide**
-
-Ensure the historic.csv file is in the project directory.
-Open Jupyter Notebook:
-Copyjupyter notebook
-
-Open model_selection.ipynb.
-Run each cell sequentially, following the comments and markdown explanations.
-After execution, review the output, plots, and printed results to understand model performance and feature importance.
-
-**Troubleshooting
-**
-Missing Packages: If you encounter ModuleNotFoundError, ensure all required packages are installed using the provided installation command.
-Memory Issues: For large datasets, you may need to increase your system's swap space or use a machine with more RAM.
-Runtime Warnings: Some warnings about future deprecations may appear. These generally don't affect the current functionality but note them for future updates.
-
-**Contributing**
 Contributions are welcome! Please follow these steps:
 
-Fork the repository
-Create a new branch (git checkout -b feature/your-feature-name)
-Make your changes
-Commit your changes (git commit -am 'Add some feature')
-Push to the branch (git push origin feature/your-feature-name)
-Create a new Pull Request
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please make sure to update tests as appropriate and adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+Project Link: [https://github.com/your-username/product-success-prediction](https://github.com/your-username/product-success-prediction)
